@@ -348,8 +348,19 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+          aliases:
+            - getinsight-auth-api.localhost
+            - getinsight-app-api.localhost
+            - getinsight-push-api.localhost
+            - getinsight-data-api.localhost
+            - getinsight-mail-api.localhost
+        backend:
+          aliases:
+            - getinsight-auth-api.localhost
+            - getinsight-app-api.localhost
+            - getinsight-push-api.localhost
+            - getinsight-mail-api.localhost
 
 ### Blackfire ########################################
     blackfire:
